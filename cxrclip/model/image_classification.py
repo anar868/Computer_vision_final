@@ -30,6 +30,13 @@ class CXRClassification(nn.Module):
             for k in ckpt["model"].keys():
                 if k.startswith("image_encoder."):
                     image_encoder_weights[".".join(k.split(".")[1:])] = ckpt["model"][k]
+            # Some CXR-CLIP ResNet checkpoints include the original ResNet fc layer,
+            # but this repo deletes fc in ResNet50, so remove these keys before loading.
+            image_encoder_weights = {
+                k: v for k, v in image_encoder_weights.items()
+                if not k.startswith("resnet.fc.")
+            }
+
             self.image_encoder.load_state_dict(image_encoder_weights, strict=True)
 
         if model_config["freeze_backbone_weights"]:

@@ -1,0 +1,6 @@
+nih_pneumonia:
+  name: "nih_pneumonia"
+  data_type: "image_classification"
+  data_path: "/content/datasets/NIH_Extracted/csv/nih_pneumonia_test.csv"
+  n_class: 1
+  normalize: "imagenet"

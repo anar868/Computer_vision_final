@@ -138,3 +138,8 @@ CHEXPERT_CLASS_PROMPTS = {
         "subtype": ["bilateral pleural effusion", "subpulmonic pleural effusion", "bilateral pleural effusion"],
     },
 }
+
+
+NIH_PNEUMONIA = [
+    "Pneumonia",
+]

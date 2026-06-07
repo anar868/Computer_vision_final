@@ -1,5 +1,6 @@
 rsna_pneumonia:
   name: "rsna_pneumonia"
   data_type: "image_classification"
-  data_path: "datasets/rsna_test.csv"
+  data_path: "/content/datasets/RSNA_Extracted/csv/rsna_test.csv"
   n_class: 1
+  normalize: "imagenet"

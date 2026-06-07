@@ -90,7 +90,7 @@ class Evaluator:
         if test_dataset_name in {"chexpert5x200"}:
             results["zeroshot_gloria"] = self.zeroshot_gloria(image_embeddings, label_names, class_list, 1000000, "mean")
 
-        if test_dataset_name in {"siim_pneumothorax", "vindr_cxr"}:
+        if test_dataset_name in {"siim_pneumothorax", "vindr_cxr", "nih_pneumonia"}:
             results["zeroshot_binary"] = self.zeroshot_binary(image_embeddings, label_names, class_list)
 
         if test_dataset_name in {"rsna_pneumonia"}:
@@ -120,7 +120,7 @@ class Evaluator:
         class_list = getattr(constants, test_dataset_name.upper())
 
         results = {}
-        if test_dataset_name in {"chexpert5x200", "rsna_pneumonia", "siim_pneumothorax", "vindr_cxr"}:
+        if test_dataset_name in {"chexpert5x200", "rsna_pneumonia", "siim_pneumothorax", "vindr_cxr", "nih_pneumonia"}:
             results["multilabel_classification"] = multilabel_classification(preds, labels, class_list)
         if test_dataset_name in {"chexpert5x200"}:
             results["multiclass_classification"] = multiclass_classification(preds, labels, class_list)
